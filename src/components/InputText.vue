@@ -6,8 +6,12 @@
       v-model="InputTextValue"
       :placeholder="placeholder"
       :type="type"
+      :required="required"
       @input="updateValue(InputTextValue)"
     />
+    <b-form-invalid-feedback>
+      Error messaging?
+    </b-form-invalid-feedback>
   </div>
 </template>
 
@@ -33,6 +37,10 @@ export default {
     type: {
       type: String,
       default: null,
+    },
+    required: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {

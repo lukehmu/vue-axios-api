@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <b-form @submit.prevent="sendData">
     <b-container fluid>
       <b-row class="my-3">
         <InputText
@@ -7,6 +7,7 @@
           v-model="userDetails.email"
           label="What is your email address"
           type="email"
+          required
         />
       </b-row>
       <b-row class="my-3">
@@ -15,6 +16,7 @@
           v-model="userDetails.name"
           label="What is your name"
           type="text"
+          required
         />
       </b-row>
       <b-row class="my-3">
@@ -25,16 +27,17 @@
         />
       </b-row>
       <b-button
-        @click="sendData"
+        type="submit"
       >
         Submit
       </b-button>
     </b-container>
-  </div>
+  </b-form>
 </template>
 
 <script>
 import lovApi from '@/services/api/lov';
+import appManApi from '@/services/api/applicationManagerApi';
 import InputText from '@/components/InputText.vue';
 import InputCheckbox from '@/components/InputCheckbox.vue';
 
@@ -61,6 +64,7 @@ export default {
         allergies: [],
       },
       sending: false,
+      apiResponse: '',
     };
   },
   computed: {
@@ -80,6 +84,11 @@ export default {
     },
     sendData() {
       this.sending = true;
+      const parsedUserDetails = JSON.parse(JSON.stringify(this.userDetails));
+      appManApi.sendUserData(parsedUserDetails)
+        .then((response) => {
+          this.apiResponse = response;
+        });
     },
   },
 
