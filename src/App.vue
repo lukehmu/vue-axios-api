@@ -1,20 +1,16 @@
 <template>
   <div id="app">
-    <img
-      alt="Vue logo"
-      src="./assets/logo.png"
-    >
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <AcfForm />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import AcfForm from './components/AcfForm.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    AcfForm,
   },
 };
 </script>
