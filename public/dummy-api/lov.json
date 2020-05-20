@@ -1,6 +1,12 @@
 {
-    "allergyLov": {
-        "LOV-123456": "Peanuts",
-        "LOV-654321": "Bananas"
-    }
+    "allergyLov": [
+        {
+            "text": "Peanuts",
+            "value": "LOV-123456"
+        },
+        {
+            "text": "Bananas",
+            "value": "LOV-654321"
+        }
+    ]
 }
