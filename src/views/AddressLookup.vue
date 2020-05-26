@@ -1,7 +1,5 @@
 <template>
-  <b-container>
-    <InputAddress />
-  </b-container>
+  <InputAddress />
 </template>
 
 <script>

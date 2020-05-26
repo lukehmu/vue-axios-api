@@ -1,13 +1,18 @@
 <template>
   <b-container fluid>
-    <b-container v-if="userData">
+    <b-row
+      v-if="userData.userPostcode"
+      class="my-3"
+      fluid
+    >
       <p>
         Submitted postcode: <strong>{{ userData.userPostcode }}</strong>
       </p>
-    </b-container>
+    </b-row>
 
     <gmaps-map
       v-if="locations"
+      class="row my-3"
       :options="mapOptions"
     >
       <gmaps-marker
@@ -17,13 +22,38 @@
         :title="marker.unit_name"
       />
     </gmaps-map>
-    <b-container v-else>
+    <b-row
+      v-else
+      class="my-3"
+    >
       <p>
         No location data, please
         <router-link :to="{name: 'AddressLookup'}">
           search for your location.
         </router-link>
       </p>
+    </b-row>
+    <b-container
+      class="my-3"
+    >
+      <b-card-group deck>
+        <b-card
+          v-for="(location, locationKey) in locations"
+          :key="locationKey"
+          :title="location.unit_name"
+        >
+          <b-card-text>
+            {{ location.l5_unit_name }}
+          </b-card-text>
+          <b-card-footer>
+            <router-link
+              :to="{name: 'CadetEOI', params: {locationId: location.unit_id}}"
+            >
+              ok
+            </router-link>
+          </b-card-footer>
+        </b-card>
+      </b-card-group>
     </b-container>
   </b-container>
 </template>
@@ -36,12 +66,14 @@ export default {
   components: { gmapsMap, gmapsMarker },
   props: {
     locations: {
-      type: Object,
+      type: Array,
       default: null,
     },
     userData: {
       type: Object,
-      default: null,
+      default() {
+        return { };
+      },
     },
   },
   data() {

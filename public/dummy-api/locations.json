@@ -5,7 +5,7 @@
   },
   "locations": [
     {
-      "unit_id": 1355,
+      "unit_id": "1355",
       "link_level": 7,
       "unit_name": "1 Brighton Pl",
       "l5_unit_name": "Sussex ACF",
@@ -24,7 +24,7 @@
       }
     },
     {
-      "unit_id": 1336,
+      "unit_id": "1336",
       "link_level": 7,
       "unit_name": "10 Eastbourne Pl",
       "unit_short_code": "10 Eastbourne Pl",

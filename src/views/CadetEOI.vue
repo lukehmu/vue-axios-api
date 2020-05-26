@@ -1,37 +1,52 @@
 <template>
   <b-container fluid>
-    <b-form @submit.prevent="sendData">
+    <template v-if="locationId">
       <b-row class="my-3">
-        <InputText
-          id="your-email"
-          v-model="userDetails.email"
-          label="What is your email address"
-          type="email"
-          required
-        />
+        <p>
+          Applying to location: <strong>{{ locationId }}</strong>
+        </p>
       </b-row>
+
+      <b-form @submit.prevent="sendData">
+        <b-row class="my-3">
+          <InputText
+            id="your-email"
+            v-model="userDetails.email"
+            label="What is your email address"
+            type="email"
+            required
+          />
+        </b-row>
+        <b-row class="my-3">
+          <InputText
+            id="your-name"
+            v-model="userDetails.name"
+            label="What is your name"
+            type="text"
+            required
+          />
+        </b-row>
+        <b-row class="my-3">
+          <InputCheckbox
+            v-model="userDetails.allergies"
+            label="textLabel"
+            :options="allergyOptions"
+          />
+        </b-row>
+        <b-button
+          type="submit"
+        >
+          Submit
+        </b-button>
+      </b-form>
+    </template>
+    <template v-else>
       <b-row class="my-3">
-        <InputText
-          id="your-name"
-          v-model="userDetails.name"
-          label="What is your name"
-          type="text"
-          required
-        />
+        <p>
+          No location id found
+        </p>
       </b-row>
-      <b-row class="my-3">
-        <InputCheckbox
-          v-model="userDetails.allergies"
-          label="textLabel"
-          :options="allergyOptions"
-        />
-      </b-row>
-      <b-button
-        type="submit"
-      >
-        Submit
-      </b-button>
-    </b-form>
+    </template>
   </b-container>
 </template>
 
@@ -42,13 +57,13 @@ import InputText from '@/components/InputText.vue';
 import InputCheckbox from '@/components/InputCheckbox.vue';
 
 export default {
-  name: 'AcfForm',
+  name: 'CadetEOI',
   components: {
     InputText,
     InputCheckbox,
   },
   props: {
-    msg: {
+    locationId: {
       type: String,
       default: null,
     },

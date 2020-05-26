@@ -2,7 +2,11 @@
   <b-container fluid>
     <b-form @submit.prevent="sendPostcode">
       <b-row class="my-3">
-        <b-input v-model="userDetails.postcode" />
+        <label for="userPostcode">Enter your postcode</label>
+        <b-input
+          id="userPostcode"
+          v-model="userDetails.postcode"
+        />
       </b-row>
       <b-row class="my-3">
         <b-button
