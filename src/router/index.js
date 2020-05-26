@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import AddressLookup from '../views/AddressLookup.vue';
+import Locations from '@/views/Locations.vue';
+import AddressLookup from '@/views/AddressLookup.vue';
 
 Vue.use(VueRouter);
 
@@ -11,7 +12,10 @@ const routes = [
     component: AddressLookup,
   },
   {
-    path: '/about',
+    path: '/locations',
+    name: 'Locations',
+    component: Locations,
+    props: true,
   },
 ];
 

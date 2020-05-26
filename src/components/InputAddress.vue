@@ -24,14 +24,15 @@ export default {
       userDetails: {
         postcode: 'BN3 7RJ',
       },
-      nearestDetachments: [],
     };
   },
   methods: {
     sendPostcode() {
       appManApi.retrieveNearestLocations(this.userDetails.postcode)
         .then((response) => {
-          this.nearestDetachments = response;
+          const { locations } = response;
+          const { userData } = response;
+          this.$router.push({ name: 'Locations', params: { locations, userData } });
         });
     },
   },

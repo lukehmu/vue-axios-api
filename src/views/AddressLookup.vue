@@ -1,17 +1,17 @@
 <template>
   <b-container>
-    <AddressInput />
+    <InputAddress />
   </b-container>
 </template>
 
 <script>
 // @ is an alias to /src
-import AddressInput from '@/components/AddressInput.vue';
+import InputAddress from '@/components/InputAddress.vue';
 
 export default {
   name: 'Home',
   components: {
-    AddressInput,
+    InputAddress,
   },
 };
 </script>

@@ -1,4 +1,8 @@
 {
+  "userData": {
+    "userPostcode": "BN3 7RJ",
+    "userLatLng": { "lat": 50.815102, "lng": -0.1720476 }
+  },
   "locations": [
     {
       "unit_id": 1355,
@@ -14,24 +18,30 @@
       "town": "Brighton",
       "county": "East Sussex",
       "post_code": "BN1 5AS",
-      "telephone_number": "01273 552222"
+      "telephone_number": "01273 552222",
+      "options": {
+        "position": { "lat": 50.835102, "lng": -0.1720476 }
+      }
     },
     {
-        "unit_id": 1336,
-        "link_level": 7,
-        "unit_name": "10 Eastbourne Pl",
-        "unit_short_code": "10 Eastbourne Pl",
-        "l5_unit_name": "Sussex ACF",
-        "parade_nights": "Tue:Thu",
-        "parade_times": "1930hrs - 2130hrs",
-        "sponsorship": "56 SIG SQN",
-        "building_name": "Cadet Centre",
-        "address_line_1": "Dawson VC House",
-        "address_line_2": "Latimer Road",
-        "address_line_3": null,
-        "town": "Eastbourne",
-        "county": null,
-        "post_code": "BN22 7BU"
+      "unit_id": 1336,
+      "link_level": 7,
+      "unit_name": "10 Eastbourne Pl",
+      "unit_short_code": "10 Eastbourne Pl",
+      "l5_unit_name": "Sussex ACF",
+      "parade_nights": "Tue:Thu",
+      "parade_times": "1930hrs - 2130hrs",
+      "sponsorship": "56 SIG SQN",
+      "building_name": "Cadet Centre",
+      "address_line_1": "Dawson VC House",
+      "address_line_2": "Latimer Road",
+      "address_line_3": null,
+      "town": "Eastbourne",
+      "county": null,
+      "post_code": "BN22 7BU",
+      "options": {
+        "position": { "lat": 50.815102, "lng": -0.1420476 }
+      }
     }
   ]
 }
