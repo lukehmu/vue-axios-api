@@ -90,6 +90,6 @@ export default {
 
 <style>
 .gmaps-map {
-  height: 500px;
+  height: 500px !important;
 }
 </style>
