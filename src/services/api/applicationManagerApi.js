@@ -13,5 +13,13 @@ export default {
         return response.data;
       });
   },
+  retrieveNearestLocations(payload) {
+    return axios.get('/dummy-api/locations.json')
+      .then((response) => {
+        console.log(payload);
+        // console.log(response)
+        return response.data;
+      });
+  },
 
 };

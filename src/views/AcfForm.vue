@@ -1,6 +1,6 @@
 <template>
-  <b-form @submit.prevent="sendData">
-    <b-container fluid>
+  <b-container fluid>
+    <b-form @submit.prevent="sendData">
       <b-row class="my-3">
         <InputText
           id="your-email"
@@ -31,8 +31,8 @@
       >
         Submit
       </b-button>
-    </b-container>
-  </b-form>
+    </b-form>
+  </b-container>
 </template>
 
 <script>
