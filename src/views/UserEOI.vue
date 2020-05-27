@@ -1,14 +1,15 @@
 <template>
   <b-container fluid>
+    <h1>Enter basic details</h1>
     <template v-if="locationId">
-      <b-row class="my-3">
+      <b-form-row class="my-3">
         <p>
           Applying to location: <strong>{{ locationId }}</strong>
         </p>
-      </b-row>
+      </b-form-row>
 
-      <b-form @submit.prevent="sendData">
-        <b-row class="my-3">
+      <b-form @submit.prevent="sendEmail">
+        <b-form-row class="my-3">
           <InputText
             id="your-email"
             v-model="userDetails.email"
@@ -16,8 +17,8 @@
             type="email"
             required
           />
-        </b-row>
-        <b-row class="my-3">
+        </b-form-row>
+        <b-form-row class="my-3">
           <InputText
             id="your-name"
             v-model="userDetails.name"
@@ -25,14 +26,7 @@
             type="text"
             required
           />
-        </b-row>
-        <b-row class="my-3">
-          <InputCheckbox
-            v-model="userDetails.allergies"
-            label="textLabel"
-            :options="allergyOptions"
-          />
-        </b-row>
+        </b-form-row>
         <b-button
           type="submit"
         >
@@ -41,26 +35,30 @@
       </b-form>
     </template>
     <template v-else>
-      <b-row class="my-3">
+      <b-form-row class="my-3">
         <p>
           No location id found
         </p>
-      </b-row>
+      </b-form-row>
     </template>
+    <b-form-row
+      v-if="fakeEmailSent"
+      class="my-3"
+    >
+      <h2>Fake email link</h2>
+      <b-input v-model="emailLink" />
+    </b-form-row>
   </b-container>
 </template>
 
 <script>
-import lovApi from '@/services/api/lov';
-import appManApi from '@/services/api/applicationManagerApi';
+// import lovApi from '@/services/api/lov';
 import InputText from '@/components/InputText.vue';
-import InputCheckbox from '@/components/InputCheckbox.vue';
 
 export default {
-  name: 'CadetEOI',
+  name: 'UserEOI',
   components: {
     InputText,
-    InputCheckbox,
   },
   props: {
     locationId: {
@@ -70,40 +68,24 @@ export default {
   },
   data() {
     return {
-      lovOptions: {
-        default: null,
-      },
       userDetails: {
         email: '',
         name: '',
-        allergies: [],
       },
       sending: false,
       apiResponse: '',
+      fakeEmailSent: false,
+      emailLink: '',
     };
   },
   computed: {
-    allergyOptions() {
-      return this.lovOptions.allergyLov;
-    },
   },
   mounted() {
-    this.getLovData();
   },
   methods: {
-    getLovData() {
-      lovApi.getLovData()
-        .then((response) => {
-          this.lovOptions = response;
-        });
-    },
-    sendData() {
-      this.sending = true;
-      const parsedUserDetails = JSON.parse(JSON.stringify(this.userDetails));
-      appManApi.sendUserData(parsedUserDetails)
-        .then((response) => {
-          this.apiResponse = response;
-        });
+    sendEmail() {
+      this.fakeEmailSent = true;
+      this.emailLink = `http://localhost:8080/userapp/${this.locationId}`;
     },
   },
 

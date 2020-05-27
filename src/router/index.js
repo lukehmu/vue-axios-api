@@ -2,7 +2,8 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Locations from '@/views/Locations.vue';
 import AddressLookup from '@/views/AddressLookup.vue';
-import CadetEOI from '@/views/CadetEOI.vue';
+import UserEOI from '@/views/UserEOI.vue';
+import UserApplication from '@/views/UserApplication.vue';
 
 Vue.use(VueRouter);
 
@@ -20,8 +21,14 @@ const routes = [
   },
   {
     path: '/cadeteoi/:locationId?',
-    name: 'CadetEOI',
-    component: CadetEOI,
+    name: 'UserEOI',
+    component: UserEOI,
+    props: true,
+  },
+  {
+    path: '/userapp/:locationId?',
+    name: 'UserApplication',
+    component: UserApplication,
     props: true,
   },
 ];

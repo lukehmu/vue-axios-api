@@ -1,5 +1,8 @@
 <template>
-  <InputAddress />
+  <b-container fluid>
+    <h1>Enter you postcode</h1>
+    <InputAddress />
+  </b-container>
 </template>
 
 <script>

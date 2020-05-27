@@ -1,20 +1,20 @@
 <template>
   <b-container fluid>
     <b-form @submit.prevent="sendPostcode">
-      <b-row class="my-3">
+      <b-form-row class="my-3">
         <label for="userPostcode">Enter your postcode</label>
         <b-input
           id="userPostcode"
           v-model="userDetails.postcode"
         />
-      </b-row>
-      <b-row class="my-3">
+      </b-form-row>
+      <b-form-row class="my-3">
         <b-button
           type="submit"
         >
           Submit
         </b-button>
-      </b-row>
+      </b-form-row>
     </b-form>
   </b-container>
 </template>

@@ -1,6 +1,7 @@
 <template>
   <b-container fluid>
-    <b-row
+    <h1>Pick a location</h1>
+    <b-form-row
       v-if="userData.userPostcode"
       class="my-3"
       fluid
@@ -8,7 +9,7 @@
       <p>
         Submitted postcode: <strong>{{ userData.userPostcode }}</strong>
       </p>
-    </b-row>
+    </b-form-row>
 
     <gmaps-map
       v-if="locations"
@@ -22,7 +23,7 @@
         :title="marker.unit_name"
       />
     </gmaps-map>
-    <b-row
+    <b-form-row
       v-else
       class="my-3"
     >
@@ -32,7 +33,7 @@
           search for your location.
         </router-link>
       </p>
-    </b-row>
+    </b-form-row>
     <b-container
       class="my-3"
     >
@@ -47,9 +48,9 @@
           </b-card-text>
           <b-card-footer>
             <router-link
-              :to="{name: 'CadetEOI', params: {locationId: location.unit_id}}"
+              :to="{name: 'UserEOI', params: {locationId: location.unit_id}}"
             >
-              ok
+              Apply to location
             </router-link>
           </b-card-footer>
         </b-card>

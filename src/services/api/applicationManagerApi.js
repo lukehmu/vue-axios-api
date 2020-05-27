@@ -10,7 +10,7 @@ export default {
     })
       .then((response) => {
         console.log('send user data');
-        return response.data;
+        return response;
       });
   },
   retrieveNearestLocations(payload) {

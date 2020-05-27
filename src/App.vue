@@ -1,6 +1,9 @@
 <template>
-  <b-container>
+  <b-container fluid>
     <b-nav pills>
+      <b-nav-item disabled>
+        Debug toolbar
+      </b-nav-item>
       <b-nav-item
         exact
         exact-active-class="active"
@@ -18,9 +21,16 @@
       <b-nav-item
         exact
         exact-active-class="active"
-        :to="{name: 'CadetEOI'}"
+        :to="{name: 'UserEOI'}"
       >
-        Cadet EOI
+        User EOI
+      </b-nav-item>
+      <b-nav-item
+        exact
+        exact-active-class="active"
+        :to="{name: 'UserApplication'}"
+      >
+        User Application
       </b-nav-item>
     </b-nav>
     <router-view />
