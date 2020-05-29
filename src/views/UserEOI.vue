@@ -47,6 +47,9 @@
     >
       <h2>Fake email link</h2>
       <b-input v-model="emailLink" />
+      <router-link :to="{name:'UserApplication', params: { locationId: locationId }}">
+        {{ emailLink }}
+      </router-link>
     </b-form-row>
   </b-container>
 </template>
