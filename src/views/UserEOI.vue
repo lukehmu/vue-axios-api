@@ -85,7 +85,9 @@ export default {
   methods: {
     sendEmail() {
       this.fakeEmailSent = true;
-      this.emailLink = `http://localhost:8080/userapp/${this.locationId}`;
+      const siteUrl = window.location.origin;
+      const emailRoute = this.$router.resolve({ name: 'UserApplication', params: { locationId: this.locationId } }).href;
+      this.emailLink = siteUrl + emailRoute;
     },
   },
 
