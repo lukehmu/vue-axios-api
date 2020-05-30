@@ -88,9 +88,8 @@ export default {
   methods: {
     sendEmail() {
       this.fakeEmailSent = true;
-      const siteUrl = window.location.origin;
       const emailRoute = this.$router.resolve({ name: 'UserApplication', params: { locationId: this.locationId } }).href;
-      this.emailLink = siteUrl + emailRoute;
+      this.emailLink = process.env.VUE_APP_BASE_URL + emailRoute;
     },
   },
 
