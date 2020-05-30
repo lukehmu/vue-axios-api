@@ -14,7 +14,7 @@
       <b-nav-item
         exact
         exact-active-class="active"
-        :to="{name: 'Locations'}"
+        :to="{name: 'MapLocations'}"
       >
         Locations
       </b-nav-item>

@@ -36,7 +36,7 @@ export default {
         .then((response) => {
           const { locations } = response;
           const { userData } = response;
-          this.$router.push({ name: 'Locations', params: { locations, userData } });
+          this.$router.push({ name: 'MapLocations', params: { locations, userData } });
         });
     },
   },

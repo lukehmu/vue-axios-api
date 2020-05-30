@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Locations from '@/views/Locations.vue';
+import MapLocations from '@/views/MapLocations.vue';
 import AddressLookup from '@/views/AddressLookup.vue';
 import UserEOI from '@/views/UserEOI.vue';
 import UserApplication from '@/views/UserApplication.vue';
@@ -15,8 +15,8 @@ const routes = [
   },
   {
     path: '/locations',
-    name: 'Locations',
-    component: Locations,
+    name: 'MapLocations',
+    component: MapLocations,
     props: true,
   },
   {

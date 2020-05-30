@@ -63,7 +63,7 @@
 import { gmapsMap, gmapsMarker } from 'x5-gmaps';
 
 export default {
-  name: 'Locations',
+  name: 'MapLocations',
   components: { gmapsMap, gmapsMarker },
   props: {
     locations: {
