@@ -10,7 +10,7 @@
 import InputAddress from '@/components/InputAddress.vue';
 
 export default {
-  name: 'Home',
+  name: 'AdressLookup',
   components: {
     InputAddress,
   },
