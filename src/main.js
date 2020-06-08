@@ -6,8 +6,10 @@ import './assets/sass/custom.scss';
 import router from './router';
 
 Vue.config.productionTip = false;
+Vue.config.devtools = true;
 Vue.use(x5GMaps, 'AIzaSyDwlJcLKu_UlWCVNJbYm-QAlSjFHQLdzOQ');
 Vue.use(BootstrapVue);
+
 
 new Vue({
   router,
