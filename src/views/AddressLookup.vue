@@ -1,33 +1,33 @@
 <template>
   <b-container fluid>
-    <h1>Enter you postcode</h1>
+    <h1>Enter your postcode</h1>
     <InputAddress />
-    <b-input v-model="searchTerm" />
-    <b-button
-      class="my-3"
-      @click="getAddressResults"
-    >
-      Get address data
-    </b-button>
-    <b-form-select
-      v-if="addressResultsSuccess"
-      v-model="selectedAddress"
-      class="my-3"
-      :options="searchResults"
-      value-field="udprn"
-      text-field="suggestion"
+    <label for="searchTerm">Enter your postcode (auto complete)</label>
+    <b-input
+      id="searchTerm"
+      v-model="searchTerm"
+      @keyup="getAddressResults"
     />
-    <b-button
-      v-if="addressResultsSuccess"
+    <b-list-group
+      v-if="addressResultsSuccess && showAddressList"
       class="my-3"
-      @click="getFullAddress"
     >
-      Get full address details
-    </b-button>
-    <b-list-group class="my-3">
+      <b-list-group-item
+        v-for="address in searchResults"
+        :key="address.udprn"
+        button
+        @click="getFullAddress(address.udprn)"
+      >
+        {{ address.suggestion }}
+      </b-list-group-item>
+    </b-list-group>
+    <b-list-group
+      v-if="showAddressDetails"
+      class="my-3"
+    >
       <b-list-group-item
         v-for="(value, name) in fullAddress"
-        :key="value"
+        :key="name"
       >
         {{ name }}: {{ value }}
       </b-list-group-item>
@@ -52,7 +52,12 @@ export default {
       selectedAddress: '',
       addressResultsSuccess: false,
       fullAddress: '',
+      showAddressList: null,
+      showAddressDetails: null,
     };
+  },
+  computed: {
+
   },
   methods: {
     getAddressResults() {
@@ -61,13 +66,17 @@ export default {
           console.log(response);
           this.searchResults = response.result.hits;
           this.addressResultsSuccess = true;
+          this.showAddressList = true;
+          this.showAddressDetails = false;
         });
     },
-    getFullAddress() {
-      addressApi.getAddressByUDPRN(this.selectedAddress)
+    getFullAddress(udprn) {
+      addressApi.getAddressByUDPRN(udprn)
         .then((response) => {
           console.log(response);
           this.fullAddress = response.result;
+          this.showAddressList = false;
+          this.showAddressDetails = true;
         });
     },
   },
