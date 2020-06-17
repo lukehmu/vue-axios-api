@@ -63,7 +63,6 @@ export default {
     getAddressResults() {
       addressApi.getAddressOptions(this.searchTerm)
         .then((response) => {
-          console.log(response);
           this.searchResults = response.result.hits;
           this.addressResultsSuccess = true;
           this.showAddressList = true;
@@ -73,7 +72,6 @@ export default {
     getFullAddress(udprn) {
       addressApi.getAddressByUDPRN(udprn)
         .then((response) => {
-          console.log(response);
           this.fullAddress = response.result;
           this.showAddressList = false;
           this.showAddressDetails = true;

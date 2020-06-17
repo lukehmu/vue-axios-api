@@ -10,24 +10,15 @@ export default {
         query: searchTerm,
       },
     })
-      .then((response) => {
-        console.log('request search term');
-        // console.log(response);
-        return response.data;
-      });
+      .then((response) => response.data);
   },
-  getAddressByUDPRN(udprn) {
-    return axios.get(`https://api.ideal-postcodes.co.uk/v1/udprn/${udprn}`, {
+  getAddressByUDPRN(selectedUdprn) {
+    return axios.get(`https://api.ideal-postcodes.co.uk/v1/udprn/${selectedUdprn}`, {
       params: {
         api_key: API_KEY,
       },
     })
-      .then((response) => {
-        console.log(udprn);
-        console.log('request udprn term');
-        // console.log(response);
-        return response.data;
-      });
+      .then((response) => response.data);
   },
 
 };
