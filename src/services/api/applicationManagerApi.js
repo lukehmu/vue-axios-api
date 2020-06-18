@@ -3,7 +3,7 @@ import axios from 'axios';
 export default {
   sendUserData(payload) {
     console.log(payload);
-    return axios.post('https://webhook.site/1b0f2d73-1af9-441d-982f-7361a892c272', payload, {
+    return axios.post('https://webhook.site/a048ba46-bd3f-45d1-9010-10b98d331795', payload, {
       headers: {
         'Content-Type': 'application/json',
       },
